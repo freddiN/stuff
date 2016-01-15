@@ -1,5 +1,5 @@
 # stuff
 
-SELinux deaktivieren:  
-Device, BboardConfig.mk:  
+## SELinux deaktivieren:  
+Device Tree, BoardConfig.mk:  
 BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive  
