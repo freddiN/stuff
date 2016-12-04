@@ -26,15 +26,4 @@ croot
 echo brunch
 brunch gemini
 
-
-
-
-
-
-
-
-
-
-
-
- 1Help       2UnWrap     3Quit        4Hex         5Goto        6           7Search     8Raw         9Format     10Quit
+rm android/system/out/target/product/gemini/cm_gemini-ota-*.zip
