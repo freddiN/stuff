@@ -26,4 +26,4 @@ croot
 echo brunch
 brunch gemini
 
-rm android/system/out/target/product/gemini/cm_gemini-ota-*.zip
+rm out/target/product/gemini/cm_gemini-ota-*.zip
