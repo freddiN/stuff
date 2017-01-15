@@ -20,11 +20,11 @@ def isInvalidDate(dateMin, dateOfChange):
     print 'invalid date min=' + dateMin + ' change=' + dateOfChange;
     return True;
   else:
-    return False;
+    return False; 
 
 def isInvalidDeviceChange(project):
   if project.find('device') != -1 and project.find('gemini') == -1:
-    print 'ignore device ' + project;
+    print 'ignore device ' + project;  
     return True;
   else:
     return False;
@@ -45,7 +45,7 @@ def dictionaryToString(dictionary):
   strChangelog = '';
   for key, changelist in dictionary.iteritems():
     #print 'key: ' + k;
-    strChangelog += key + ':\n';
+    strChangelog += '\n' + key + ':\n';
     for s in changelist:
       #print ' value:' + s;
       strChangelog += '  ' + s + '\n';
@@ -57,6 +57,10 @@ def queryGerrit():
   rest = GerritRestAPI(url=endpoint, auth=None);
   return rest.get(query);
 
+def generateChangelogLine(change):
+  line = '%-60s %s  https://review.lineageos.org/#/c/%s' % (change['subject'], change['updated'][:19],  str(change['_number'])); 
+  return line;
+
 
 dic_changes  = defaultdict(list);
 dateMin = readDatetimeFromFile();
@@ -65,22 +69,21 @@ print 'min date: ' + dateMin;
 changes = queryGerrit();
 for change in changes:
   #print 'Change: ' + change['project'] + ' ' + change['subject'] + ' ' ;
-  project = change['project'];
-  if isInvalidDeviceChange(project):
+
+  if isInvalidDeviceChange(change['project']):
     continue;
 
-  if isInvalidKernelChange(project):
+  if isInvalidKernelChange(change['project']):
     continue;
 
   if isInvalidDate(dateMin, change['updated'][:19]):
     continue;
 
-  print 'ok ' + project;
-  dic_changes[change['project']].append(change['subject'] + ' - ' + change['updated'][:19] + ' - ' + change['change_id'][1:]);
+  print 'valid   ' + change['project'];
+  dic_changes[change['project']].append(generateChangelogLine(change));
 
 print '------------------------------------';
 strChangelog = dictionaryToString(dic_changes);
 
 print 'changes: ' + strChangelog;
 writeChangelogFile(strChangelog);
-
