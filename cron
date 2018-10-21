@@ -1,0 +1,1 @@
+*/30 * * * * wget "http://fritz.box:49200/AUDIO/DLNA-1-0/.start_indexation.mp3" -O /dev/null
