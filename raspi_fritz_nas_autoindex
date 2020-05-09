@@ -1,0 +1,1 @@
+*/30 * * * * /usr/bin/wget -qO /dev/null http://192.168.178.1:49200/AUDIO/DLNA-1-0/.start_indexation.mp3
