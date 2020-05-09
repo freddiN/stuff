@@ -1,7 +1,0 @@
-
-<?xml version="1.0" encoding="UTF-8"?>
-<manifest>
-  <project name="kumajaya/android_device_xiaomi_libra" path="device/xiaomi/libra" remote="github" revision="cm-13.0" />
-  <project name="kumajaya/android_kernel_xiaomi_msm8992" path="kernel/xiaomi/msm8992" remote="github" revision="cm-13.0" />
-  <project name="kumajaya/proprietary_vendor_xiaomi" path="vendor/xiaomi" remote="github" revision="cm-13.0" />
-</manifest>
