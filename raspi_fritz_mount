@@ -1,0 +1,8 @@
+sudo nano /etc/fstab
+//192.168.178.1/fritz.nas/usb120        /mnt/fritz      cifs    username=USER,password=PASS,uid=1000,gid=1000,vers=1.0
+
+sudo mount /mnt/fritz
+
+sudo nano /etc/rc.local
+(sleep 30
+mount /mnt/fritz)&
